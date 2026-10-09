@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="William Tse's finance portfolio">
+  <title>William Tse | Finance Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --ink: #172033;
+      --muted: #657086;
+      --accent: #174ea6;
+      --accent-light: #eaf1ff;
+      --line: #e2e7f0;
+      --shadow: 0 14px 40px rgba(25, 42, 75, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    .container {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 24px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 74px 0 68px;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    h1 {
+      margin: 12px 0 18px;
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+      line-height: 1.04;
+      letter-spacing: -0.06em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2.3vw, 1.32rem);
+      margin: 0;
+    }
+
+    .hero strong {
+      color: var(--ink);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 17px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--line);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .button-secondary {
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    section {
+      padding: 42px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 22px;
+    }
+
+    .section-heading h2 {
+      font-size: 1.75rem;
+      letter-spacing: -0.04em;
+      margin: 0 0 5px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      background: var(--accent-light);
+      color: #17417f;
+      padding: 9px 13px;
+      border: 1px solid #d7e4ff;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      min-height: 285px;
+    }
+
+    .project-type {
+      color: var(--accent);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .project h3 {
+      margin: 10px 0 9px;
+      font-size: 1.25rem;
+      letter-spacing: -0.025em;
+    }
+
+    .project p {
+      color: var(--muted);
+      margin: 0 0 20px;
+    }
+
+    .project-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .project-footer a {
+      font-size: 0.9rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .project-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 17px;
+    }
+
+    footer {
+      margin-top: 38px;
+      padding: 26px 0 34px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding: 50px 0 40px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 32px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="container">
+    <nav aria-label="Main navigation">
+      <a class="brand" href="#top">WT<span>.</span></a>
+
+      <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- PERSONAL STATEMENT -->
+    <div class="container hero">
+      <div class="eyebrow">
+        Finance · Rutgers University–New Brunswick
+      </div>
+
+      <h1>William Tse</h1>
+
+      <p>
+        I'm a Rutgers finance student who applies
+        <strong>analytical thinking, attention to detail, and practical
+        problem-solving</strong> to financial services and business operations.
+      </p>
+
+      <div class="hero-actions">
+        <a class="button button-primary" href="#projects">
+          Explore My Projects ↓
+        </a>
+
+        <!-- Replace this URL with your personal LinkedIn profile -->
+        <a
+          class="button button-secondary"
+          href="https://www.linkedin.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn ↗
+        </a>
+      </div>
+    </div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Skills</h2>
+          <p>Technical and professional skills relevant to finance and business.</p>
+        </div>
+
+        <div class="skills">
+          <span class="skill">Microsoft Excel</span>
+          <span class="skill">Financial Analysis</span>
+          <span class="skill">Data Accuracy &amp; Quality Control</span>
+          <span class="skill">Commercial Insurance Operations</span>
+          <span class="skill">Applied Epic</span>
+          <span class="skill">Research &amp; Analytical Thinking</span>
+          <span class="skill">Professional Communication</span>
+          <span class="skill">Documentation &amp; Organization</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Projects &amp; Experience</h2>
+          <p>
+            Selected work demonstrating practical business and
+            risk-analysis experience.
+          </p>
+        </div>
+
+        <div class="projects">
+
+          <!-- PROJECT 1 -->
+          <article class="project">
+            <div class="project-type">
+              Insurance Operations · Document
+            </div>
+
+            <h3>Oakmont Master Proposal Email Template</h3>
+
+            <p>
+              Created a reusable commercial insurance proposal email
+              template to organize policy coverage, premiums, required
+              signatures, payment instructions, and important account
+              notes in a consistent client-facing format.
+            </p>
+
+            <div class="project-footer">
+              <a
+                href="assets/Oakmont-Master-Proposal-Email-Template.docx"
+                download
+              >
+                Download Word Document ↓
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="project">
+            <div class="project-type">
+              Risk Analysis · Certificate
+            </div>
+
+            <h3>Goldman Sachs Risk Job Simulation</h3>
+
+            <p>
+              Completed the Forage Risk Job Simulation in September 2026,
+              including practical tasks introducing risk and evaluating
+              client profiles and real estate investments.
+            </p>
+
+            <div class="project-footer">
+              <a
+                href="assets/Goldman-Sachs-Risk-Simulation-Certificate.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View Certificate ↗
+              </a>
+
+              <a
+                href="https://www.theforage.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Forage ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- PROJECT 3 -->
+          <article class="project">
+            <div class="project-type">
+              Professional Experience
+            </div>
+
+            <h3>Commercial Insurance Operations</h3>
+
+            <p>
+              Supported commercial property and casualty insurance
+              workflows by maintaining policy records in Applied Epic,
+              tracking renewals in Excel, checking documentation, and
+              assisting with Commercial Auto and New York DBL/PFL processing.
+            </p>
+
+            <div class="project-footer">
+              <a
+                href="assets/Oakmont-Master-Proposal-Email-Template.docx"
+                download
+              >
+                View Related Work Sample ↓
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="note">
+          Note: The Oakmont document is an internal work sample.
+          Before publishing it publicly, confirm you have permission
+          to share it and remove any confidential client or company information.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 William Tse · Built with HTML &amp; CSS.
+    </div>
+  </footer>
+</body>
+</html>
